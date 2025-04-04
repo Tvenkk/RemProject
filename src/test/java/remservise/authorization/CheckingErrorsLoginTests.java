@@ -23,7 +23,7 @@ public class CheckingErrorsLoginTests extends BaseTest {
 
     @Test
     @DisplayName("Проверяем, что под полями Логин и Пароль высвечивается текст 'Обязательное поле'")
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.CRITICAL)
     public void testCheckErrorLogin() {
         loginPage.clickLoginButton()
                 .checkErrorLoginMessage()
@@ -32,7 +32,7 @@ public class CheckingErrorsLoginTests extends BaseTest {
 
     @Test
     @DisplayName("Проверяем, что всплывает уведомление с текстом 'Пользователь не найден!'")
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.CRITICAL)
     public void testCheckErrorUserNotFound() {
         loginPage.login(loginRandom, passwordRandom)
                 .checkErrorUserNotFound();
@@ -40,7 +40,7 @@ public class CheckingErrorsLoginTests extends BaseTest {
 
     @Test
     @DisplayName("Проверяем, что всплывает уведомление с текстом 'Некорректный пароль!'")
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.CRITICAL)
     public void testCheckErrorIncorrectPassword() {
         loginPage.login("r.tsapko", passwordRandom)
                 .checkErrorIncorrectPassword();

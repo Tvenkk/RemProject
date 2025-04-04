@@ -23,21 +23,21 @@ public class PasswordResetErrorCheckingTests extends BaseTest {
     }
 
     @Test
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.CRITICAL)
     public void testIncorrectEmailErrorChecking() {
         forgotPasswordPage.passwordReset(loginRandom)
                 .checkIncorrectEmail();
     }
 
     @Test
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.CRITICAL)
     public void testDisplayCheckRequiredField() {
         forgotPasswordPage.clickSendButton()
                 .checkRequiredField();
     }
 
     @Test
-    @Severity(SeverityLevel.NORMAL)
+    @Severity(SeverityLevel.CRITICAL)
     public void testUserWithThisEmailNotFound() {
         forgotPasswordPage.passwordReset(email)
                 .checkUserNotFoundError(email);
