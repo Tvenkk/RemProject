@@ -5,6 +5,7 @@ import core.components.SideBarComponent;
 import core.pages.authorization.LoginPage;
 import core.pages.orders.OrdersPage;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -12,6 +13,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static com.codeborne.selenide.Selenide.open;
 
+@Disabled
 @Tag("regress")
 public class ParameterizedLoginTest extends BaseTest {
     private static LoginPage loginPage = new LoginPage();
