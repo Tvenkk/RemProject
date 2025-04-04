@@ -2,6 +2,8 @@ package remservise.passwordreset;
 
 import core.base.BaseTest;
 import core.pages.authorization.ForgotPasswordPage;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -21,18 +23,21 @@ public class PasswordResetErrorCheckingTests extends BaseTest {
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void testIncorrectEmailErrorChecking() {
         forgotPasswordPage.passwordReset(loginRandom)
                 .checkIncorrectEmail();
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void testDisplayCheckRequiredField() {
         forgotPasswordPage.clickSendButton()
                 .checkRequiredField();
     }
 
     @Test
+    @Severity(SeverityLevel.NORMAL)
     public void testUserWithThisEmailNotFound() {
         forgotPasswordPage.passwordReset(email)
                 .checkUserNotFoundError(email);

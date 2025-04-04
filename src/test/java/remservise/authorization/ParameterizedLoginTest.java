@@ -4,6 +4,8 @@ import core.base.BaseTest;
 import core.components.SideBarComponent;
 import core.pages.authorization.LoginPage;
 import core.pages.orders.OrdersPage;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -30,7 +32,7 @@ public class ParameterizedLoginTest extends BaseTest {
     })
     @ParameterizedTest
     @DisplayName("Проверка входа в Remservise")
-    @Tag("Blocker")
+    @Severity(SeverityLevel.BLOCKER)
     public void testLogin(String username, String password, String role) {
         loginPage.login(username, password);
         sideBarComponent.checkLoginAndRole(username, role);
