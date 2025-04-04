@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 
+@Tag("regress")
 public class PasswordResetTest extends BaseTest {
     private static ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
 

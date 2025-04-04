@@ -12,6 +12,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static com.codeborne.selenide.Selenide.open;
 
+@Tag("regress")
 public class ParameterizedLoginTest extends BaseTest {
     private static LoginPage loginPage = new LoginPage();
     private static SideBarComponent sideBarComponent = new SideBarComponent();

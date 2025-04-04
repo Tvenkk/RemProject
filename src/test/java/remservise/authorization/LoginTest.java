@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 
+@Tag("regress")
 public class LoginTest extends BaseTest {
     private static LoginPage loginPage = new LoginPage();
     private static OrdersPage ordersPage;

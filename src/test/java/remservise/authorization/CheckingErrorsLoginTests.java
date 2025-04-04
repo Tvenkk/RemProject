@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.open;
 import static core.utils.RandomData.*;
 
+@Tag("regress")
 public class CheckingErrorsLoginTests extends BaseTest {
     private static LoginPage loginPage = new LoginPage();
 
