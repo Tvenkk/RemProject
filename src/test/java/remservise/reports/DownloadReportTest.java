@@ -12,18 +12,16 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.open;
 
 public class DownloadReportTest extends BaseTest {
-
     private static LoginPage loginPage = new LoginPage();
     private static SideBarComponent sideBarComponent = new SideBarComponent();
     private static ReportsPage reportsPage = new ReportsPage();
 
     @BeforeEach
-    @DisplayName("Открываем страницу авторизации")
-    public void setuo() {
+    public void entry() {
         open("login");
     }
 
-    @Disabled("Кнопка не имеют атрибут 'href'")
+    @Disabled("Кнопка для скачивания отчета не имеет атрибут 'href'")
     @Test
     @DisplayName("Проверка скачивания отчета формат xls")
     public void testDownloadReport() throws Exception {
