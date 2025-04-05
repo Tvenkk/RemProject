@@ -14,7 +14,7 @@ import java.util.Map;
 public class BaseTest {
 
     @BeforeAll
-    public static void setup() {
+    static void setup() {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserSize = System.getProperty("browserSize", "1280x720");
         Configuration.timeout = 17000;
