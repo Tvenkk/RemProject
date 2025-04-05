@@ -39,6 +39,10 @@ test {
     useJUnitPlatform()
 }
 
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+}
+
 task regress_test(type: Test) {
     useJUnitPlatform {
         includeTags("regress")
