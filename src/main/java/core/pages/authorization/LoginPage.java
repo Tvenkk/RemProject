@@ -66,14 +66,14 @@ public class LoginPage {
         return this;
     }
 
-    @Step("Проверяем, что Snakebar содержит текст 'Пользователь не найден!")
+    @Step("Проверяем, что Snakebar содержит текст 'Пользователь не найден!'")
     public LoginPage checkErrorUserNotFound() {
         errorMessage.shouldBe(visible).shouldBe(Condition.exactText(SNAKEBAR_USER_NOT_FOUND));
 
         return this;
     }
 
-    @Step("Проверяем, что Snakebar содержит текст 'Некорректный пароль!")
+    @Step("Проверяем, что Snakebar содержит текст 'Некорректный пароль!'")
     public LoginPage checkErrorIncorrectPassword() {
         errorMessage.shouldBe(visible).shouldHave(Condition.exactText(SNAKEBAR_INCORRECT_PASSWORD));
 
