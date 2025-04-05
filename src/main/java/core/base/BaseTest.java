@@ -15,8 +15,8 @@ public class BaseTest {
 
     @BeforeAll
     public static void setup() {
-        Configuration.browser = System.getProperty("browser", "firefox");
-        Configuration.browserSize = System.getProperty("browserSize", "1280x720");
+        Configuration.browser = System.getProperty("browser");
+        Configuration.browserSize = System.getProperty("browserSize");
         Configuration.timeout = 17000;
         Configuration.remote = "https://user1:1234@"+ System.getProperty("selenoidUrl", "selenoid.autotests.cloud/wd/hub");
 
