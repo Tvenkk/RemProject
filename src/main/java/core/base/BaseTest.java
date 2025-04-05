@@ -15,11 +15,10 @@ public class BaseTest {
 
     @BeforeAll
     public static void setup() {
-        Configuration.browser = "chrome";
-        Configuration.browserVersion = "128.0";
-        Configuration.browserSize = "1920x1080";
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         Configuration.timeout = 17000;
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = "https://user1:1234@"+ System.getProperty("selenoidUrl", "selenoid.autotests.cloud/wd/hub");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
@@ -34,7 +33,7 @@ public class BaseTest {
 
     @BeforeEach
     void addListener() {
-        Configuration.baseUrl = "https://test-remservice.aqsi.ru/";
+        Configuration.baseUrl = System.getProperty("baseUrl", "https://test-remservice.aqsi.ru/");
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
