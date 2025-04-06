@@ -20,14 +20,14 @@ public class ForgotPasswordPage {
             forgotPasswordText = $(".css-v7yuct"),
 
     // Локаторы формы
-    emailField = $("[name='email']"),
+            emailField = $("[name='email']"),
             sendButton = $(".css-19n6eea"),
 
     // Локатор уведомления под полем
-    successMessage = $(".css-1xsto0d"),
+            successMessage = $(".css-1xsto0d"),
 
     // Локатор ошибки
-    errorEmailMessage = $("#email-helper-text");
+            errorEmailMessage = $("#email-helper-text");
 
 
     @Step("Проверяем заголовок формы")
