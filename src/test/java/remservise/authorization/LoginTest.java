@@ -1,8 +1,11 @@
 package remservise.authorization;
 
 import core.base.BaseTest;
+import core.components.SideBarComponent;
 import core.pages.authorization.LoginPage;
 import core.pages.orders.OrdersPage;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -10,8 +13,10 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 
+@Tag("regress")
 public class LoginTest extends BaseTest {
     private static LoginPage loginPage = new LoginPage();
+    private static SideBarComponent sideBarComponent = new SideBarComponent();
     private static OrdersPage ordersPage;
 
     @BeforeEach
@@ -21,10 +26,12 @@ public class LoginTest extends BaseTest {
 
     @Test
     @DisplayName("Проверка входа в Remservise")
-    @Tag("Blocker")
+    @Severity(SeverityLevel.BLOCKER)
     public void testLogin() {
         loginPage.login("r.tsapko", "Noviyparol1234!!");
         ordersPage = new OrdersPage();
         ordersPage.checkOrdersTitle();
+        sideBarComponent.exit();
+        loginPage.checkOutputHeader();
     }
 }

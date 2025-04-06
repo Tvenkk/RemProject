@@ -4,6 +4,8 @@ import core.base.BaseTest;
 import core.components.SideBarComponent;
 import core.pages.authorization.LoginPage;
 import core.pages.orders.OrdersPage;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -12,6 +14,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static com.codeborne.selenide.Selenide.open;
 
+@Tag("regress")
 public class ParameterizedLoginTest extends BaseTest {
     private static LoginPage loginPage = new LoginPage();
     private static SideBarComponent sideBarComponent = new SideBarComponent();
@@ -29,12 +32,12 @@ public class ParameterizedLoginTest extends BaseTest {
     })
     @ParameterizedTest
     @DisplayName("Проверка входа в Remservise")
-    @Tag("Blocker")
+    @Severity(SeverityLevel.BLOCKER)
     public void testLogin(String username, String password, String role) {
         loginPage.login(username, password);
         sideBarComponent.checkLoginAndRole(username, role);
-        ordersPage.checkOrdersTitle()
-                .exit();
+        ordersPage.checkOrdersTitle();
+        sideBarComponent.exit();
         loginPage.checkOutputHeader();
     }
 }

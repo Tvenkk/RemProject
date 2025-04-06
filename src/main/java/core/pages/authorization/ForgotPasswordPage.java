@@ -59,14 +59,14 @@ public class ForgotPasswordPage {
         return this;
     }
 
-    @Step("Проверяем, что текст ошибки содержит: [{INCORRECT_EMAIL}]")
+    @Step("Проверяем, что текст ошибки содержит 'Не корректный e-mail !'")
     public ForgotPasswordPage checkIncorrectEmail() {
         errorEmailMessage.shouldBe(visible).shouldHave(Condition.exactText(INCORRECT_EMAIL));
 
         return this;
     }
 
-    @Step("Проверяем, что текст ошибки содержит: [{REQUIRED_FIELD}]")
+    @Step("Проверяем, что текст ошибки содержит 'Обязательное поле'")
     public ForgotPasswordPage checkRequiredField() {
         errorEmailMessage.shouldBe(visible).shouldHave(Condition.exactText(REQUIRED_FIELD));
 
