@@ -16,6 +16,7 @@ import static core.utils.RandomData.*;
 
 @Tag("regress")
 public class CheckingErrorsLoginTests extends BaseTest {
+    private String defaultLogin = "r.tsapko";
     private static LoginPage loginPage = new LoginPage();
 
     @BeforeEach
@@ -25,7 +26,7 @@ public class CheckingErrorsLoginTests extends BaseTest {
 
     @Test
     @Feature("Авторизация")
-    @Story("Отображение ошибки")
+    @Story("Отображение ошибок")
     @DisplayName("Проверяем, что под полями Логин и Пароль высвечивается текст 'Обязательное поле'")
     @Severity(SeverityLevel.CRITICAL)
     public void testCheckErrorLogin() {
@@ -37,7 +38,7 @@ public class CheckingErrorsLoginTests extends BaseTest {
 
     @Test
     @Feature("Авторизация")
-    @Story("Отображение ошибки")
+    @Story("Отображение ошибок")
     @DisplayName("Проверяем, что всплывает уведомление с текстом 'Пользователь не найден!'")
     @Severity(SeverityLevel.CRITICAL)
     public void testCheckErrorUserNotFound() {
@@ -48,12 +49,12 @@ public class CheckingErrorsLoginTests extends BaseTest {
 
     @Test
     @Feature("Авторизация")
-    @Story("Отображение ошибки")
+    @Story("Отображение ошибок")
     @DisplayName("Проверяем, что всплывает уведомление с текстом 'Некорректный пароль!'")
     @Severity(SeverityLevel.CRITICAL)
     public void testCheckErrorIncorrectPassword() {
         loginPage
-                .login("r.tsapko", passwordRandom)
+                .login(defaultLogin, passwordRandom)
                 .checkErrorIncorrectPassword();
     }
 }

@@ -17,6 +17,8 @@ import static com.codeborne.selenide.Selenide.open;
 
 @Tag("regress")
 public class LoginTest extends BaseTest {
+    private String defaultLogin = "r.tsapko";
+    private String defaultPassword = "Noviyparol1234!!";
     private static LoginPage loginPage = new LoginPage();
     private static SideBarComponent sideBarComponent = new SideBarComponent();
     private static OrdersPage ordersPage = new OrdersPage();
@@ -33,7 +35,7 @@ public class LoginTest extends BaseTest {
     @Severity(SeverityLevel.BLOCKER)
     public void testLogin() {
         loginPage
-                .login("r.tsapko", "Noviyparol1234!!");
+                .login(defaultLogin, defaultPassword);
         ordersPage
                 .checkOrdersTitle();
         sideBarComponent
