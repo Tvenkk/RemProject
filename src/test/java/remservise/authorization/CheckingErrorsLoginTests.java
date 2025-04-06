@@ -25,32 +25,35 @@ public class CheckingErrorsLoginTests extends BaseTest {
 
     @Test
     @Feature("Авторизация")
-    @Story("Проверка ошибок")
+    @Story("Отображение ошибки")
     @DisplayName("Проверяем, что под полями Логин и Пароль высвечивается текст 'Обязательное поле'")
     @Severity(SeverityLevel.CRITICAL)
     public void testCheckErrorLogin() {
-        loginPage.clickLoginButton()
+        loginPage
+                .clickLoginButton()
                 .checkErrorLoginMessage()
                 .checkErrorPasswordMessage();
     }
 
     @Test
     @Feature("Авторизация")
-    @Story("Проверка ошибок")
+    @Story("Отображение ошибки")
     @DisplayName("Проверяем, что всплывает уведомление с текстом 'Пользователь не найден!'")
     @Severity(SeverityLevel.CRITICAL)
     public void testCheckErrorUserNotFound() {
-        loginPage.login(loginRandom, passwordRandom)
+        loginPage
+                .login(loginRandom, passwordRandom)
                 .checkErrorUserNotFound();
     }
 
     @Test
     @Feature("Авторизация")
-    @Story("Проверка ошибок")
+    @Story("Отображение ошибки")
     @DisplayName("Проверяем, что всплывает уведомление с текстом 'Некорректный пароль!'")
     @Severity(SeverityLevel.CRITICAL)
     public void testCheckErrorIncorrectPassword() {
-        loginPage.login("r.tsapko", passwordRandom)
+        loginPage
+                .login("r.tsapko", passwordRandom)
                 .checkErrorIncorrectPassword();
     }
 }
