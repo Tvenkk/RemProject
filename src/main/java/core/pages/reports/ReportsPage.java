@@ -2,7 +2,6 @@ package core.pages.reports;
 
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.xlstest.XLS;
-import core.components.SideBarComponent;
 import io.qameta.allure.Step;
 
 import java.io.File;
@@ -10,7 +9,7 @@ import java.io.File;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
-public class ReportsPage extends SideBarComponent {
+public class ReportsPage {
 
     private SelenideElement
             reportDownloadButton = $(".css-108snh2");

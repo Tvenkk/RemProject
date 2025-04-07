@@ -2,13 +2,12 @@ package core.pages.orders;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import core.components.SideBarComponent;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
-public class OrdersPage extends SideBarComponent {
+public class OrdersPage {
     private final String TITLE_TEXT = "Таблица заявок";
 
     // Локатор заголовка
