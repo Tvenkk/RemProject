@@ -4,8 +4,10 @@ import core.base.BaseTest;
 import core.components.SideBarComponent;
 import core.pages.authorization.LoginPage;
 import core.pages.orders.OrdersPage;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -15,9 +17,11 @@ import static com.codeborne.selenide.Selenide.open;
 
 @Tag("regress")
 public class LoginTest extends BaseTest {
+    private String defaultLogin = "r.tsapko";
+    private String defaultPassword = "Noviyparol1234!!";
     private static LoginPage loginPage = new LoginPage();
     private static SideBarComponent sideBarComponent = new SideBarComponent();
-    private static OrdersPage ordersPage;
+    private static OrdersPage ordersPage = new OrdersPage();
 
     @BeforeEach
     public void entry() {
@@ -25,13 +29,18 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @Feature("Авторизация")
+    @Story("Успешный вход в ЛК")
     @DisplayName("Проверка входа в Remservise")
     @Severity(SeverityLevel.BLOCKER)
     public void testLogin() {
-        loginPage.login("r.tsapko", "Noviyparol1234!!");
-        ordersPage = new OrdersPage();
-        ordersPage.checkOrdersTitle();
-        sideBarComponent.exit();
-        loginPage.checkOutputHeader();
+        loginPage
+                .login(defaultLogin, defaultPassword);
+        ordersPage
+                .checkOrdersTitle();
+        sideBarComponent
+                .exit();
+        loginPage
+                .checkOutputHeader();
     }
 }

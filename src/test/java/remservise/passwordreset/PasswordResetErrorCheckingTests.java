@@ -2,9 +2,12 @@ package remservise.passwordreset;
 
 import core.base.BaseTest;
 import core.pages.authorization.ForgotPasswordPage;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
@@ -23,23 +26,35 @@ public class PasswordResetErrorCheckingTests extends BaseTest {
     }
 
     @Test
+    @Feature("Восстановление пароля")
+    @Story("Отображение ошибок")
+    @DisplayName("Проверяем, что под полем E-mail высвечивается текст 'Не корректный e-mail !'")
     @Severity(SeverityLevel.CRITICAL)
     public void testIncorrectEmailErrorChecking() {
-        forgotPasswordPage.passwordReset(loginRandom)
+        forgotPasswordPage
+                .passwordReset(loginRandom)
                 .checkIncorrectEmail();
     }
 
     @Test
+    @Feature("Восстановление пароля")
+    @Story("Отображение ошибок")
+    @DisplayName("Проверяем, что под полем E-mail высвечивается текст 'Обязательное поле'")
     @Severity(SeverityLevel.CRITICAL)
     public void testDisplayCheckRequiredField() {
-        forgotPasswordPage.clickSendButton()
+        forgotPasswordPage
+                .clickSendButton()
                 .checkRequiredField();
     }
 
     @Test
+    @Feature("Восстановление пароля")
+    @Story("Отображение ошибок")
+    @DisplayName("Проверяем, что пользователь с введенным email не найден")
     @Severity(SeverityLevel.CRITICAL)
     public void testUserWithThisEmailNotFound() {
-        forgotPasswordPage.passwordReset(email)
+        forgotPasswordPage
+                .passwordReset(email)
                 .checkUserNotFoundError(email);
     }
 }

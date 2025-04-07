@@ -2,8 +2,10 @@ package remservise.authorization;
 
 import core.base.BaseTest;
 import core.pages.authorization.LoginPage;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -14,6 +16,7 @@ import static core.utils.RandomData.*;
 
 @Tag("regress")
 public class CheckingErrorsLoginTests extends BaseTest {
+    private String defaultLogin = "r.tsapko";
     private static LoginPage loginPage = new LoginPage();
 
     @BeforeEach
@@ -22,27 +25,36 @@ public class CheckingErrorsLoginTests extends BaseTest {
     }
 
     @Test
+    @Feature("Авторизация")
+    @Story("Отображение ошибок")
     @DisplayName("Проверяем, что под полями Логин и Пароль высвечивается текст 'Обязательное поле'")
     @Severity(SeverityLevel.CRITICAL)
     public void testCheckErrorLogin() {
-        loginPage.clickLoginButton()
+        loginPage
+                .clickLoginButton()
                 .checkErrorLoginMessage()
                 .checkErrorPasswordMessage();
     }
 
     @Test
+    @Feature("Авторизация")
+    @Story("Отображение ошибок")
     @DisplayName("Проверяем, что всплывает уведомление с текстом 'Пользователь не найден!'")
     @Severity(SeverityLevel.CRITICAL)
     public void testCheckErrorUserNotFound() {
-        loginPage.login(loginRandom, passwordRandom)
+        loginPage
+                .login(loginRandom, passwordRandom)
                 .checkErrorUserNotFound();
     }
 
     @Test
+    @Feature("Авторизация")
+    @Story("Отображение ошибок")
     @DisplayName("Проверяем, что всплывает уведомление с текстом 'Некорректный пароль!'")
     @Severity(SeverityLevel.CRITICAL)
     public void testCheckErrorIncorrectPassword() {
-        loginPage.login("r.tsapko", passwordRandom)
+        loginPage
+                .login(defaultLogin, passwordRandom)
                 .checkErrorIncorrectPassword();
     }
 }
