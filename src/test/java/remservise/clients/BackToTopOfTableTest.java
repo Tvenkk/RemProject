@@ -1,5 +1,6 @@
 package remservise.clients;
 
+import com.codeborne.selenide.Configuration;
 import core.base.BaseTest;
 import core.components.SideBarComponent;
 import core.pages.authorization.LoginPage;
@@ -16,7 +17,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.open;
 
 @Tag("regress")
-public class BackToTopOfTableTest extends BaseTest{
+public class BackToTopOfTableTest extends BaseTest {
     private String
             defaultLogin = "r.tsapko",
             defaultPassword = "Noviyparol1234!!";

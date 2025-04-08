@@ -17,30 +17,23 @@ public class ClientsPage {
             paginationButton = $("[data-testid='pagination-rows']"),
             upButton = $(".css-gbngva"),
             tableHeader = $(".css-1anx036"),
-
             paginationList = $("[data-testid='pagination-menu-list']");
 
 
     @Step("Скроллим до кнопки Пагинация")
     public ClientsPage scrollToPaginationButton() {
-        paginationButton.scrollTo();
+        paginationButton.shouldBe(visible).scrollTo();
+        sleep(2000);
 
         return this;
     }
 
     @Step("Выбираем нужный элемент пагинации")
     public ClientsPage clickPaginationButton(String value) {
-        paginationButton.click();
+        paginationButton.shouldBe(visible).click();
+        paginationList.shouldBe(visible);
         SelenideElement paginationElement = $(String.format(".css-17p6f5[data-value='%s']", value));
         paginationElement.click();
-
-        return this;
-    }
-
-    @Step("Нажимаем на последний элемент пагинации")
-    public ClientsPage clickLastPaginationElement() {
-        paginationList.shouldBe(visible);
-
 
         return this;
     }
