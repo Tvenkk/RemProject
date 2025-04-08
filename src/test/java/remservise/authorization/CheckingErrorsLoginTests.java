@@ -16,7 +16,9 @@ import static core.utils.RandomData.*;
 
 @Tag("regress")
 public class CheckingErrorsLoginTests extends BaseTest {
-    private String defaultLogin = "r.tsapko";
+    private String
+            defaultLogin = "r.tsapko";
+
     private static LoginPage loginPage = new LoginPage();
 
     @BeforeEach

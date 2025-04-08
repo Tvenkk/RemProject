@@ -40,6 +40,20 @@ public class SideBarComponent {
         return this;
     }
 
+    @Step("Кликаем на раздел Клиенты")
+    public SideBarComponent clickClientsChapter() {
+        chapterClients.shouldBe(visible).click();
+
+        return this;
+    }
+
+    @Step("Кликаем на раздел Настройки")
+    public SideBarComponent clickSettingsChapter() {
+        chapterSettings.shouldBe(visible).click();
+
+        return this;
+    }
+
     @Step("Кликаем на раздел Отчеты")
     public SideBarComponent clickReportsChapter() {
         chapterReports.shouldBe(visible).click();

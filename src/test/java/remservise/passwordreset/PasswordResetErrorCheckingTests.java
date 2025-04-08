@@ -17,7 +17,9 @@ import static core.utils.RandomData.loginRandom;
 
 @Tag("regress")
 public class PasswordResetErrorCheckingTests extends BaseTest {
-    private String email = emailRandom;
+    private String
+            email = emailRandom;
+
     private static ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
 
     @BeforeEach

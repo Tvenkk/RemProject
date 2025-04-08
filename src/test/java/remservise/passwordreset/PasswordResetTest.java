@@ -15,7 +15,9 @@ import static com.codeborne.selenide.Selenide.open;
 
 @Tag("regress")
 public class PasswordResetTest extends BaseTest {
-    private String defaultEmail = "r.tsapko@aqsi.ru";
+    private String
+            defaultEmail = "r.tsapko@aqsi.ru";
+
     private static ForgotPasswordPage forgotPasswordPage = new ForgotPasswordPage();
 
     @BeforeEach
