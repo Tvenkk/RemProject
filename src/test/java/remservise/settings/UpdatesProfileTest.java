@@ -19,9 +19,8 @@ import static core.utils.RandomData.*;
 @Tag("regress")
 public class UpdatesProfileTest extends BaseTest {
     private String
-            defaultLogin = "r.tsapko",
-            defaultPassword = "Noviyparol1234!!",
-            defaultEmail = "r.tsapko@aqsi.ru",
+            defaultLogin = "r.tsapkoAK",
+            defaultPassword = "sSHzl3fbCI",
             name = loginRandom,
             phone = phoneRandom,
             email = emailRandom;
@@ -53,9 +52,6 @@ public class UpdatesProfileTest extends BaseTest {
                 .enterPassword(defaultPassword)
                 .clickSaveButton()
                 .checkNoticeSucces()
-                .checkValuesInFields(name, phone, email)
-                // Возвращаем дефолтную почту
-                .editEmailField(defaultEmail)
-                .checkNoticeSucces();
+                .checkValuesInFields(name, phone, email);
     }
 }
