@@ -33,6 +33,7 @@ public class ClientsPage {
         paginationList.shouldBe(visible);
         SelenideElement paginationElement = $(String.format(".css-17p6f5[data-value='%s']", value));
         paginationElement.click();
+        sleep(2000);
 
         return this;
     }
