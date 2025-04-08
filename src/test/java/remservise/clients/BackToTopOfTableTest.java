@@ -1,6 +1,5 @@
 package remservise.clients;
 
-import com.codeborne.selenide.Configuration;
 import core.base.BaseTest;
 import core.components.SideBarComponent;
 import core.pages.authorization.LoginPage;

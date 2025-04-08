@@ -12,8 +12,10 @@ import static com.codeborne.selenide.Selenide.open;
 
 @Tag("regress")
 public class DownloadReportTest extends BaseTest {
-    private String defaultLogin = "r.tsapko";
-    private String defaultPassword = "Noviyparol1234!!";
+    private String
+            defaultLogin = "r.tsapko",
+            defaultPassword = "Noviyparol1234!!";
+
     private static LoginPage loginPage = new LoginPage();
     private static SideBarComponent sideBarComponent = new SideBarComponent();
     private static ReportsPage reportsPage = new ReportsPage();
