@@ -20,14 +20,14 @@ public class ClientsPage {
             recordsPerPageList = $("[data-testid='pagination-menu-list']");
 
 
-    @Step("Скроллим до кнопки Пагинация")
+    @Step("Скроллим до кнопки выбора записей на странице")
     public ClientsPage scrollToPaginationButton() {
         recordsPerPageButton.shouldBe(visible).scrollTo();
 
         return this;
     }
 
-    @Step("Выбираем нужный элемент пагинации")
+    @Step("Выбираем нужное количество записей на странице")
     public ClientsPage clickPaginationButton(String value) {
         recordsPerPageButton.shouldBe(visible).click();
         recordsPerPageList.shouldBe(visible);
