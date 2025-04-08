@@ -45,6 +45,7 @@ public class UpdatesProfileTest extends BaseTest {
         sideBarComponent
                 .clickSettingsChapter();
         settingsPage
+                .clickProfileTab()
                 .checkTitle()
                 .editNameField(name)
                 .editPhoneField(phone)

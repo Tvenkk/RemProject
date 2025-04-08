@@ -16,6 +16,7 @@ public class SettingsPage {
             SNAKEBAR_SUCCESSFUL_PRESERVATION = "Сохранение профиля";
 
     private SelenideElement
+            profileTab = $(byTagAndText("p", "Профиль")),
             title = $(".css-zq6grw"),
             nameField = $("[data-input='name']"),
             phoneField = $("[data-input='phone']"),
@@ -24,6 +25,13 @@ public class SettingsPage {
             saveButton = $(byTagAndText("button", "Сохранить")),
             notice = $(".css-hped4j");
 
+
+    @Step("Кликаем на вкладку 'Профиль'")
+    public SettingsPage clickProfileTab() {
+        profileTab.shouldBe(visible).click();
+
+        return this;
+    }
 
     @Step("Проверяем заголовок страницы")
     public SettingsPage checkTitle() {
