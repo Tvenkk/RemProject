@@ -23,7 +23,6 @@ public class ClientsPage {
     @Step("Скроллим до кнопки Пагинация")
     public ClientsPage scrollToPaginationButton() {
         paginationButton.shouldBe(visible).scrollTo();
-        sleep(2000);
 
         return this;
     }

@@ -48,5 +48,7 @@ public class BackToTopOfTableTest extends BaseTest {
                 .goingBackUp()
                 .checkVisibleUpButton()
                 .checkTableHeader();
+        sideBarComponent
+                .exit();
     }
 }
