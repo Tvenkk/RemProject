@@ -14,25 +14,25 @@ public class ClientsPage {
             TITLE_TEXT = "Таблица клиентов";
 
     private SelenideElement
-            paginationButton = $("[data-testid='pagination-rows']"),
+            recordsPerPageButton = $("[data-testid='pagination-rows']"),
             upButton = $(".css-gbngva"),
             tableHeader = $(".css-1anx036"),
-            paginationList = $("[data-testid='pagination-menu-list']");
+            recordsPerPageList = $("[data-testid='pagination-menu-list']");
 
 
     @Step("Скроллим до кнопки Пагинация")
     public ClientsPage scrollToPaginationButton() {
-        paginationButton.shouldBe(visible).scrollTo();
+        recordsPerPageButton.shouldBe(visible).scrollTo();
 
         return this;
     }
 
     @Step("Выбираем нужный элемент пагинации")
     public ClientsPage clickPaginationButton(String value) {
-        paginationButton.shouldBe(visible).click();
-        paginationList.shouldBe(visible);
-        SelenideElement paginationElement = $(String.format(".css-17p6f5[data-value='%s']", value));
-        paginationElement.click();
+        recordsPerPageButton.shouldBe(visible).click();
+        recordsPerPageList.shouldBe(visible);
+        SelenideElement PerPageElement = $(String.format(".css-17p6f5[data-value='%s']", value));
+        PerPageElement.click();
         sleep(2000);
 
         return this;
