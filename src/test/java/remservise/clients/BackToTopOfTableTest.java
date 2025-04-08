@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.open;
 
 @Tag("regress")
-public class BackToTopOfTableTest extends BaseTest {
+public class BackToTopOfTableTest extends BaseTest{
     private String
             defaultLogin = "r.tsapko",
             defaultPassword = "Noviyparol1234!!";
@@ -42,6 +42,7 @@ public class BackToTopOfTableTest extends BaseTest {
                 .clickClientsChapter();
         clientsPage
                 .checkTableHeader()
+                .clickPaginationButton("50")
                 .scrollToPaginationButton()
                 .goingBackUp()
                 .checkVisibleUpButton()

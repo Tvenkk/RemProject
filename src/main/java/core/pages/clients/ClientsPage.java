@@ -7,6 +7,7 @@ import io.qameta.allure.Step;
 import static com.codeborne.selenide.Condition.hidden;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class ClientsPage {
     private final String
@@ -15,12 +16,31 @@ public class ClientsPage {
     private SelenideElement
             paginationButton = $("[data-testid='pagination-rows']"),
             upButton = $(".css-gbngva"),
-            tableHeader = $(".css-1anx036");
+            tableHeader = $(".css-1anx036"),
+
+            paginationList = $("[data-testid='pagination-menu-list']");
 
 
     @Step("Скроллим до кнопки Пагинация")
     public ClientsPage scrollToPaginationButton() {
         paginationButton.scrollTo();
+
+        return this;
+    }
+
+    @Step("Выбираем нужный элемент пагинации")
+    public ClientsPage clickPaginationButton(String value) {
+        paginationButton.click();
+        SelenideElement paginationElement = $(String.format(".css-17p6f5[data-value='%s']", value));
+        paginationElement.click();
+
+        return this;
+    }
+
+    @Step("Нажимаем на последний элемент пагинации")
+    public ClientsPage clickLastPaginationElement() {
+        paginationList.shouldBe(visible);
+
 
         return this;
     }
@@ -42,6 +62,7 @@ public class ClientsPage {
     @Step("Проверяем заголовок страницы")
     public ClientsPage checkTableHeader() {
         tableHeader.shouldBe(visible).shouldHave(Condition.exactText(TITLE_TEXT));
+        sleep(3000);
 
         return this;
     }
