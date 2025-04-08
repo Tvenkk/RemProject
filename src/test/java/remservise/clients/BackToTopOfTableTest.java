@@ -1,15 +1,22 @@
 package remservise.clients;
 
-import com.codeborne.selenide.Configuration;
+import core.base.BaseTest;
 import core.components.SideBarComponent;
 import core.pages.authorization.LoginPage;
 import core.pages.clients.ClientsPage;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class BackToTopOfTableTest {
+@Tag("regress")
+public class BackToTopOfTableTest extends BaseTest {
     private String
             defaultLogin = "r.tsapko",
             defaultPassword = "Noviyparol1234!!";
@@ -20,11 +27,14 @@ public class BackToTopOfTableTest {
 
     @BeforeEach
     public void entry() {
-        open("https://test-remservice.aqsi.ru/login");
-        Configuration.timeout = 17000;
+        open("login");
     }
 
     @Test
+    @Feature("Раздел 'Клиенты'")
+    @Story("Возврат наверх")
+    @DisplayName("Проверяем, что при нажатии на кнопку возврата, возвращаемся в начало таблицы")
+    @Severity(SeverityLevel.NORMAL)
     public void testBackToTopOfTable() {
         loginPage
                 .login(defaultLogin, defaultPassword);
