@@ -33,15 +33,29 @@ public class SettingsPage {
         return this;
     }
 
-    @Step("Редактируем поля")
-    public SettingsPage editFields(String name, String phone, String email) {
+    @Step("Редактируем поле ФИО")
+    public SettingsPage editNameField(String name) {
         // Не работает метод clear()
         nameField.sendKeys(Keys.CONTROL + "A");
         nameField.sendKeys(Keys.BACK_SPACE);
         nameField.shouldBe(visible).setValue(name);
+
+        return this;
+    }
+
+    @Step("Редактируем поле Телефон")
+    public SettingsPage editPhoneField(String phone) {
+        // Не работает метод clear()
         phoneField.sendKeys(Keys.CONTROL + "A");
         phoneField.sendKeys(Keys.BACK_SPACE);
         phoneField.shouldBe(visible).setValue(phone);
+
+        return this;
+    }
+
+    @Step("Редактируем поле Email")
+    public SettingsPage editEmailField(String email) {
+        // Не работает метод clear()
         emailField.sendKeys(Keys.CONTROL + "A");
         emailField.sendKeys(Keys.BACK_SPACE);
         emailField.shouldBe(visible).setValue(email);
@@ -71,7 +85,7 @@ public class SettingsPage {
         return this;
     }
 
-    @Step("Проверяем значения в полях")
+    @Step("Проверяем новые значения в полях")
     public SettingsPage checkValuesInFields(String name, String phone, String email) {
         nameField.shouldBe(visible);
         SelenideElement nameFieldValue = $(String.format("[value='%s']", name));

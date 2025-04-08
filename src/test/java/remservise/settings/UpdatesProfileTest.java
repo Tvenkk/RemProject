@@ -21,6 +21,7 @@ public class UpdatesProfileTest extends BaseTest {
     private String
             defaultLogin = "r.tsapko",
             defaultPassword = "Noviyparol1234!!",
+            defaultEmail = "r.tsapko@aqsi.ru",
             name = loginRandom,
             phone = phoneRandom,
             email = emailRandom;
@@ -46,10 +47,15 @@ public class UpdatesProfileTest extends BaseTest {
                 .clickSettingsChapter();
         settingsPage
                 .checkTitle()
-                .editFields(name, phone, email)
+                .editNameField(name)
+                .editPhoneField(phone)
+                .editEmailField(email)
                 .enterPassword(defaultPassword)
                 .clickSaveButton()
                 .checkNoticeSucces()
-                .checkValuesInFields(name, phone, email);
+                .checkValuesInFields(name, phone, email)
+                // Возвращаем дефолтную почту
+                .editEmailField(defaultEmail)
+                .checkNoticeSucces();
     }
 }
